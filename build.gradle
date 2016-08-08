@@ -1,0 +1,83 @@
+group 'com.roger.springcloud.gradle.example'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
+
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.14.1'
+    distributionUrl = "https://downloads.gradle.org/distributions/gradle-2.14.1-bin.zip"
+}
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+buildscript {
+    ext {
+        springBootVersion = '1.3.5.RELEASE'
+    }
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+}
+
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'idea'
+    apply plugin: 'spring-boot'
+    apply plugin: "io.spring.dependency-management"
+
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+
+    ext {
+        springBootVersion = '1.3.5.RELEASE'
+    }
+
+    repositories {
+        mavenLocal()
+//        maven { url "http://maven.aliyun.com/nexus/content/repositories/central/" }
+//        maven { url "http://maven.aliyun.com/nexus/content/repositories/gradleplugins/" }
+//        maven { url "http://maven.aliyun.com/nexus/content/repositories/jcenter/" }
+        mavenCentral()
+    }
+    buildscript {
+        repositories {
+//          mavenLocal() 让 Gradle使用与Maven相同的策略去定位本地Maven缓存的位置。如果在settings.xml中定义了本地Maven仓库的地址，则使用该地址。在USER_HOME/.m2下的settings.xml文件中的配置会覆盖存放在M2_HOME/conf下的settings.xml文件中的配置。如果没有settings.xml配置文件，Gradle会使用默认的USER_HOME/.m2/repository地址。
+            mavenLocal()
+//            maven { url "http://maven.aliyun.com/nexus/content/repositories/central/" }
+//            maven { url "http://maven.aliyun.com/nexus/content/repositories/gradleplugins/" }
+//            maven { url "http://maven.aliyun.com/nexus/content/repositories/jcenter/" }
+            mavenCentral()
+        }
+        dependencies {
+            // 相当于maven的插件
+            classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        }
+    }
+
+    dependencyManagement {
+        imports {
+            mavenBom 'org.springframework.cloud:spring-cloud-dependencies:Brixton.SR4'
+        }
+    }
+
+    if (project.parent == null) {
+        buildDir = new File(rootProject.buildDir, project.name)
+    } else {
+        buildDir = new File(project.parent.buildDir, project.name)
+    }
+}

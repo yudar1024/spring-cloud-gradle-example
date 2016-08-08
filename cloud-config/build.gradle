@@ -1,0 +1,11 @@
+group 'com.roger.springcloud.gradle.example'
+version '1.0-SNAPSHOT'
+
+
+dependencies {
+    compile('org.springframework.cloud:spring-cloud-starter-config')
+    compile('org.springframework.cloud:spring-cloud-config-server')
+    compile('org.springframework.cloud:spring-cloud-starter-hystrix')
+    compile('org.springframework.cloud:spring-cloud-starter-eureka')
+    testCompile('junit:junit:4.11')
+}

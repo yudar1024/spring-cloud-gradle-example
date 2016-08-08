@@ -1,0 +1,17 @@
+spring:
+#  profiles:
+#    active: dev
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/yudar1024/config-repo.git
+          #以application*开头的文件所使用的属性会被所有client 使用
+          basedir: D:/temp
+#          指定版本控制git 根目录下的文件夹，匹配应用的属性文件搜索路径，例如应用configclient1，会到根目录下的onfigclient1文件夹，中搜索configclient1.properties文件
+          search-paths: '{application}'
+      allow-override: true
+
+

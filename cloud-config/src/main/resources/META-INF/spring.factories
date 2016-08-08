@@ -1,0 +1,2 @@
+#用于添加额外的属性，比如sample.custom.CustomPropertySourceLocator 从数据或者其他数据源读取数据。注意，这个类一定要在compontentscan 注解的路径中，如果有多个类，用逗号隔开
+#org.springframework.cloud.bootstrap.BootstrapConfiguration=com.roger.spring.config.server.prop.CustomPropertySourceLocator

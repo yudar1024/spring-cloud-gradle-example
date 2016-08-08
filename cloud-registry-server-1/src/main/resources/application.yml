@@ -1,0 +1,26 @@
+debug: true
+server:
+  port: 8080
+  
+
+spring:
+  application:
+    name: eurekaserver1
+
+eureka:
+#  instance:
+#    hostname: localhost
+#    metadata-map:
+#    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+  client:
+
+#    不获取注册服务上的其他服务信息 默认为true，false 为standalone 模式
+    fetchRegistry: true
+    service-url:
+       defaultZone: http://localhost:${server.port}/eureka/
+    registry-fetch-interval-seconds: 2
+    #    自身不注册为服务 默认为true,false为standalone 模式
+    register-with-eureka: true
+  instance:
+    lease-renewal-interval-in-seconds: 2
+    lease-expiration-duration-in-seconds: 10

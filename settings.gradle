@@ -1,0 +1,5 @@
+rootProject.name = 'spring-cloud-gradle-example'
+include 'cloud-config'
+include 'cloud-registry-server-1'
+include 'cloud-service-1'
+
