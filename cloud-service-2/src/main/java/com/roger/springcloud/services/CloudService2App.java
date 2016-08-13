@@ -13,13 +13,13 @@ import org.springframework.web.bind.annotation.RestController;
 @SpringCloudApplication
 @RestController
 @EnableHystrix
-public class CloudService1App {
+public class CloudService2App {
 
     @Value("${jdbc.url}")
     private String url;
 
     public static void main(String [] args){
-        SpringApplication.run(CloudService1App.class,args);
+        SpringApplication.run(CloudService2App.class,args);
     }
 
     @RequestMapping("/url")
