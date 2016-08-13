@@ -1,10 +1,11 @@
 debug: true
 server:
-  port: 8080
+  port: 8081
   
 
 spring:
   application:
+#  高可用时，注册服务器的应用名要相同
     name: eurekaserver1
 
 eureka:
@@ -14,11 +15,10 @@ eureka:
 #    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
   client:
 
-#    不获取注册服务上的服务信息 默认为true，false 为standalone 模式
+#    获取注册服务上的其他服务信息 默认为true，false 为standalone 模式
     fetchRegistry: true
     service-url:
-#   将自身的信息注册到其他registry服务器上
-      defaultZone: http://localhost:8081/eureka/
+       defaultZone: http://localhost:8080/eureka/
     registry-fetch-interval-seconds: 2
     #    自身不注册为服务 默认为true,false为standalone 模式
     register-with-eureka: true
@@ -26,6 +26,6 @@ eureka:
     lease-renewal-interval-in-seconds: 2
     lease-expiration-duration-in-seconds: 10
   server:
-#   启用HA
+  #   启用HA
     batch-replication: true
     enable-replicated-request-compression: true

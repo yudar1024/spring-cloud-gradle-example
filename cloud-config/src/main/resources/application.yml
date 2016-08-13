@@ -1,8 +1,14 @@
-debug: true
+#如果配置服务器的debug 属性配置为true 那么，需要访问配置服务器的其他服务，也必须将debug 设置为true 不然拿不到数据
+debug: false
 server:
   port: 8888
 
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://localhost:8080/eureka/
+      defaultZone: http://localhost:8080/eureka/,http://localhost:8081/eureka/
+spring:
+  application:
+    name: cloud-config-server
+
+
