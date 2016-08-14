@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: turbine-push
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8080/eureka/,http://localhost:8081/eureka/
+debug: true
+
+
+server:
+  port: 6100
+turbine:
+# 需要收集信息的的应用列表
+  app-config: cloud-service-2,cloud-service-1
+  cluster-name-expression: "'default'"

@@ -1,0 +1,11 @@
+debug: true
+server:
+  port: 6101
+spring:
+  application:
+    name: dash-board-app
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8080/eureka/,http://localhost:8081/eureka/

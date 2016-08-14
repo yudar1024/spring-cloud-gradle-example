@@ -1,5 +1,6 @@
 package com.roger.springcloud.services;
 
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.cloud.client.SpringCloudApplication;
@@ -12,20 +13,18 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @SpringCloudApplication
 @RestController
+//启用hystrix stream ，可以在此服务的url(localhost:9101)后加/hystrix.stream 才看stream 流的数据，完整URL=localhost:9101/hystrix.stream.此stream 只搜集被@HystrixCommand 注解标注的方法的调用情况
 @EnableHystrix
 public class CloudService1App {
 
-    @Value("${jdbc.url}")
-    private String url;
 
     public static void main(String [] args){
         SpringApplication.run(CloudService1App.class,args);
     }
 
-    @RequestMapping("/url")
-    public String showUrl(){
-        return url;
-    }
+
+
+
 
 
 }

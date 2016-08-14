@@ -4,4 +4,6 @@ include 'cloud-registry-server-1'
 include 'cloud-service-1'
 include 'cloud-registry-sever-2'
 include 'cloud-service-2'
+include 'turbine-push'
+include 'cloud-hystrix-dashboard'
 
