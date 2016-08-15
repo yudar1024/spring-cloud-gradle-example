@@ -1,0 +1,14 @@
+spring:
+#  通过指定配置服务器地址获取配置信息
+#  profiles:
+#    active:
+#      cloud:
+#        config:
+#          uri: http://localhost:8888
+# 通过服务发现得到配置信息
+  cloud:
+      config:
+        discovery:
+          enabled: true
+          service-id: cloud-config-server
+

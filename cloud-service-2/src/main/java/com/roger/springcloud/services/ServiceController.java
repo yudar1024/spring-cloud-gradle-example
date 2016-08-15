@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class ServiceController {
 
-    @Value("${jdbc.url}")
+    @Value("${jdbc.url:default}")
     private String url;
 
     @RequestMapping("/url")
