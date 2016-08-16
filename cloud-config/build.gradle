@@ -7,5 +7,10 @@ dependencies {
     compile('org.springframework.cloud:spring-cloud-config-server')
     compile('org.springframework.cloud:spring-cloud-starter-hystrix')
     compile('org.springframework.cloud:spring-cloud-starter-eureka')
+//    通过spring cloud bus 更新配置所需的依赖 开始 通过configserverhost:port/bus/refresh 发送通知，通知所有客户端刷新
+    compile('org.springframework.cloud:spring-cloud-config-monitor')
+    compile('org.springframework.cloud:spring-cloud-starter-bus-amqp')
+    compile('org.springframework.boot:spring-boot-starter-actuator')
+//    通过spring cloud bus 更新配置所需的依赖 结束
     testCompile('junit:junit:4.11')
 }

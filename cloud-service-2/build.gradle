@@ -8,5 +8,9 @@ dependencies {
     compile('org.springframework.cloud:spring-cloud-netflix-hystrix-stream')
     compile('org.springframework.cloud:spring-cloud-starter-stream-rabbit')
     compile('org.springframework.cloud:spring-cloud-starter-eureka')
+    //    可以通过服务自身的hostname:port/refresh 来刷新单个服务的配置信息 只有被refreshscope 注解标注的bean 才会刷新
+    compile('org.springframework.boot:spring-boot-starter-actuator')
+//    通过springbus 更新配置
+    compile('org.springframework.cloud:spring-cloud-starter-bus-amqp')
     testCompile group: 'junit', name: 'junit', version: '4.11'
 }

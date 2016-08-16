@@ -3,6 +3,7 @@ debug: false
 server:
   port: 8888
 
+
 eureka:
   client:
     serviceUrl:
@@ -10,5 +11,9 @@ eureka:
 spring:
   application:
     name: cloud-config-server
+  rabbitmq:
+#  host 与 port 都为默认值
+    host: localhost
+    port: 5672
 
 
