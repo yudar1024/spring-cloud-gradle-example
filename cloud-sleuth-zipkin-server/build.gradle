@@ -1,0 +1,12 @@
+
+
+dependencies {
+    compile ("org.springframework.cloud:spring-cloud-sleuth-zipkin-stream")
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-jdbc'
+    compile group: 'com.h2database', name: 'h2', version: '1.4.192'
+    compile ("org.springframework.cloud:spring-cloud-starter-sleuth")
+//  Rabbit binding
+    compile ("org.springframework.cloud:spring-cloud-stream-binder-rabbit")
+//    zipkin ui  dependency
+    compile group: 'io.zipkin.java', name: 'zipkin-autoconfigure-ui'
+}

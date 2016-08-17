@@ -1,0 +1,14 @@
+spring:
+  rabbitmq:
+    host: localhost
+  sleuth:
+    enabled: false
+
+  application:
+    name: zipkin-server
+zipkin:
+  storage:
+    type: mem
+#使用localhost:12000 访问zipkin 界面
+server:
+  port: 12000
