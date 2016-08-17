@@ -9,7 +9,14 @@ dependencies {
     compile('org.springframework.cloud:spring-cloud-starter-eureka')
 //    可以通过服务自身的hostname:port/refresh 来刷新单个服务的配置信息 只有被refreshscope 注解标注的bean 才会刷新
     compile('org.springframework.boot:spring-boot-starter-actuator')
+    compile('org.springframework.boot:spring-boot-starter-aop')
 //    通过springbus 更新配置
     compile('org.springframework.cloud:spring-cloud-starter-bus-amqp')
+//    sleuth 通过bind 将消息推送到zipkin
+    compile "org.springframework.cloud:spring-cloud-sleuth-stream"
+    compile "org.springframework.cloud:spring-cloud-stream-binder-rabbit"
+
+//    lb
+    compile "org.springframework.cloud:spring-cloud-starter-ribbon"
     testCompile group: 'junit', name: 'junit', version: '4.11'
 }

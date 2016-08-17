@@ -4,9 +4,26 @@ server:
 spring:
   application:
     name: cloud-service-1
+  rabbitmq:
+    host: localhost
+  zipkin:
+    enabled: true
+    baseUrl: http://localhost:12000/
+  sleuth:
+    stream:
+      enabled: true
+    sampler:
+     # 采样率，默认0.1即10%,如需测试时每次都看到trace则修改为1.0，但对性能有影响，注意上线时修改为合理值
+      percentage: 1.0
+
+sample:
+  zipkin:
+    # When enabled=false, traces log to the console. Comment to send to zipkin
+    enabled: true
 
 eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8080/eureka/,http://localhost:8081/eureka/
 debug: true
+
