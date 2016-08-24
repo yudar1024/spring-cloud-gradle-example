@@ -65,3 +65,15 @@ logging:
   level:
     ROOT: DEBUG
     org.springframework.web: DEBUG
+
+
+#proxy:
+#  auth:
+#    routes:
+#      cloud-service-1: oauth2
+#security:
+#  oauth2:
+#    client:
+#      client-id:
+#      client-secret:
+

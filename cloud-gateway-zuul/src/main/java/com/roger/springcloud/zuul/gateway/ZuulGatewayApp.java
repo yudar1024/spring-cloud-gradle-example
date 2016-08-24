@@ -14,6 +14,7 @@ import org.springframework.context.annotation.Bean;
  */
 @SpringCloudApplication
 @EnableZuulProxy
+
 public class ZuulGatewayApp {
     public static void main(String[] args) {
         new SpringApplicationBuilder(ZuulGatewayApp.class).web(true).run(args);
