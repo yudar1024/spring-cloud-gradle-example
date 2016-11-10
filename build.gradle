@@ -15,7 +15,7 @@ task wrapper(type: Wrapper) {
 
 repositories {
     mavenLocal()
-    maven { url "http://maven.aliyun.com/nexus/content/repositories/central/" }
+    maven { url "http://maven.aliyun.com/nexus/content/groups/public/" }
     maven { url "http://maven.aliyun.com/nexus/content/repositories/gradleplugins/" }
     maven { url "http://maven.aliyun.com/nexus/content/repositories/jcenter/" }
     mavenCentral()
@@ -27,7 +27,7 @@ buildscript {
     }
     repositories {
         mavenLocal()
-        maven { url "http://maven.aliyun.com/nexus/content/repositories/central/" }
+        maven { url "http://maven.aliyun.com/nexus/content/groups/public/" }
         maven { url "http://maven.aliyun.com/nexus/content/repositories/gradleplugins/" }
         maven { url "http://maven.aliyun.com/nexus/content/repositories/jcenter/" }
         mavenCentral()
@@ -55,7 +55,7 @@ subprojects {
 
     repositories {
         mavenLocal()
-        maven { url "http://maven.aliyun.com/nexus/content/repositories/central/" }
+        maven { url "http://maven.aliyun.com/nexus/content/groups/public/" }
         maven { url "http://maven.aliyun.com/nexus/content/repositories/gradleplugins/" }
         maven { url "http://maven.aliyun.com/nexus/content/repositories/jcenter/" }
         mavenCentral()
@@ -64,7 +64,7 @@ subprojects {
         repositories {
 //          mavenLocal() 让 Gradle使用与Maven相同的策略去定位本地Maven缓存的位置。如果在settings.xml中定义了本地Maven仓库的地址，则使用该地址。在USER_HOME/.m2下的settings.xml文件中的配置会覆盖存放在M2_HOME/conf下的settings.xml文件中的配置。如果没有settings.xml配置文件，Gradle会使用默认的USER_HOME/.m2/repository地址。
             mavenLocal()
-            maven { url "http://maven.aliyun.com/nexus/content/repositories/central/" }
+            maven { url "http://maven.aliyun.com/nexus/content/groups/public/" }
             maven { url "http://maven.aliyun.com/nexus/content/repositories/gradleplugins/" }
             maven { url "http://maven.aliyun.com/nexus/content/repositories/jcenter/" }
             mavenCentral()
