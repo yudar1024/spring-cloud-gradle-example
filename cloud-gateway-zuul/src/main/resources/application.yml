@@ -12,6 +12,22 @@ eureka:
     eureka-server-read-timeout-seconds: 10
 
 
+#    信道维持时间
+ribbon:
+  ConnectTimeout: 600000
+  ReadTimeout: 600000
+  eureka:
+    enabled: true
+
+#单个访问请求持续时间
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 60000
+
 zuul:
   routes:
 #配置方式有3种

@@ -27,3 +27,19 @@ eureka:
       defaultZone: http://localhost:8080/eureka/,http://localhost:8081/eureka/
 debug: true
 
+#    信道维持时间
+ribbon:
+  ConnectTimeout: 600000
+  ReadTimeout: 600000
+  eureka:
+    enabled: true
+
+#单个访问请求持续时间
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 60000
+
