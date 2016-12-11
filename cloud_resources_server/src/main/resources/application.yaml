@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: res-server
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8080/eureka/,http://localhost:8081/eureka/
+debug: true
+server:
+  port: 8100

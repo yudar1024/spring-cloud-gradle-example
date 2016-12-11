@@ -9,4 +9,7 @@ include 'cloud-hystrix-dashboard'
 include 'cloud-gateway-zuul'
 include 'cloud-service-1-replication'
 include 'cloud-sleuth-zipkin-server'
+include 'cloud-zuul-auth'
+include 'cloud-auth-server'
+include 'cloud_resources_server'
 
