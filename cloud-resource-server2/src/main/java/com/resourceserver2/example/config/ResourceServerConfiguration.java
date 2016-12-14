@@ -1,14 +1,12 @@
-package com.example.config;
+package com.resourceserver2.example.config;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Import;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.ResourceServerConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configurers.ResourceServerSecurityConfigurer;
@@ -22,7 +20,6 @@ import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenCo
  */
 @Configuration
 @EnableResourceServer
-@Import(OAuth2FeignAutoConfiguration.class)
 public class ResourceServerConfiguration extends ResourceServerConfigurerAdapter{
     Logger log = LoggerFactory.getLogger(ResourceServerConfiguration.class);
 
@@ -32,7 +29,7 @@ public class ResourceServerConfiguration extends ResourceServerConfigurerAdapter
                 .csrf().disable()
                 .authorizeRequests()
                 .antMatchers("/**").authenticated()
-                .antMatchers(HttpMethod.GET, "/foo").hasAuthority("FOO_READ").and().securityContext().and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+                .antMatchers(HttpMethod.GET, "/foo").hasAuthority("FOO_READ");
                 //.antMatchers(HttpMethod.POST, "/foo").hasAuthority("FOO_WRITE");
                 //you can implement it like this, but I show method invocation security on write
     }

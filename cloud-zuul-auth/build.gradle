@@ -9,6 +9,7 @@ dependencies {
     compile("org.springframework.cloud:spring-cloud-starter-security")
     compile("org.springframework.cloud:spring-cloud-starter-oauth2")
     compile('org.springframework.cloud:spring-cloud-starter-zuul')
+    compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-feign'
 //    compile group: 'com.mangofactory', name: 'swagger-springmvc', version: '1.0.2'
 //    compile('org.ajar:swagger-spring-mvc-ui')
 }

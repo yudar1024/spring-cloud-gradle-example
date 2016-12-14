@@ -12,4 +12,5 @@ include 'cloud-sleuth-zipkin-server'
 include 'cloud-zuul-auth'
 include 'cloud-auth-server'
 include 'cloud_resources_server'
+include 'cloud-resource-server2'
 

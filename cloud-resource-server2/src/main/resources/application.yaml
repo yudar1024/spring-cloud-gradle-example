@@ -1,6 +1,6 @@
 spring:
   application:
-    name: res-server
+    name: res-server-2
 
 eureka:
   client:
@@ -8,11 +8,11 @@ eureka:
       defaultZone: http://localhost:8080/eureka/,http://localhost:8081/eureka/
 debug: true
 server:
-  port: 8100
+  port: 8200
+
 
 # 使用RequestInterceptor 使feignclient支持oauth2的时候，在注入OAuth2ClientContext 作为参数使会出现错误原因在于feignclient 使用了hystrix enable
 #http://stackoverflow.com/questions/34677470/spring-feignclient-with-oauth2feignrequestinterceptor-not-working
 feign:
   hystrix:
     enabled: false
-

@@ -1,6 +1,7 @@
 group 'com.roger.springcloud.gradle.example'
 version '1.0-SNAPSHOT'
 
+
 dependencies {
     compile("org.springframework.cloud:spring-cloud-starter-security")
     compile("org.springframework.cloud:spring-cloud-starter-oauth2")
@@ -8,6 +9,5 @@ dependencies {
     compile('org.springframework.cloud:spring-cloud-starter-eureka')
     compile('org.springframework.cloud:spring-cloud-starter-hystrix')
     compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-feign'
-//    compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-ribbon'
     testCompile group: 'junit', name: 'junit', version: '4.11'
 }
