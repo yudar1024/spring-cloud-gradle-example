@@ -13,4 +13,5 @@ include 'cloud-zuul-auth'
 include 'cloud-auth-server'
 include 'cloud_resources_server'
 include 'cloud-resource-server2'
+include 'cloud-authsever-shiro'
 

@@ -1,5 +1,7 @@
 group 'com.roger.springcloud.gradle.example'
 version '1.0-SNAPSHOT'
+apply plugin: 'com.bmuschko.docker-remote-api'
+import com.bmuschko.gradle.docker.tasks.image.DockerBuildImage
 
 dependencies {
     compile('org.springframework.cloud:spring-cloud-starter-config')
@@ -20,3 +22,32 @@ dependencies {
     compile "org.springframework.cloud:spring-cloud-starter-ribbon"
     testCompile group: 'junit', name: 'junit', version: '4.11'
 }
+
+task copyJar(type: Copy) {
+    dependsOn   'build'
+    from('../build/cloud-service-1/libs')
+    from('dockerfile')
+    into        '../build/docker/cloud-service-1'
+    rename { String fileName ->
+        fileName.replace("-${project.version}", "")
+    }
+}
+
+task buildDockerImage(type: DockerBuildImage) {
+    dependsOn   copyJar
+//    if (System.env.DOCKER_HOST) {
+//        url = "$System.env.DOCKER_HOST".replace("tcp","https")
+//        if (System.env.DOCKER_CERT_PATH) {
+//            certPath = new File(System.env.DOCKER_CERT_PATH)
+//
+//        }
+//    }
+//    else {
+//        url = 'unix:///var/run/docker.sock'
+//    }
+    inputDir = file('../build/docker/cloud-service-1')
+    tag = 'test/cloud-service1'
+}
+
+//build.dependsOn buildDockerImage
+//build.dependsOn copyJar

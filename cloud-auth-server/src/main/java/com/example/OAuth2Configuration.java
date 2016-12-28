@@ -16,6 +16,7 @@ import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
 import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 import org.springframework.security.oauth2.provider.token.store.KeyStoreKeyFactory;
+import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
 
 /**
  * Created by on 28.01.16.
@@ -38,11 +39,14 @@ public class OAuth2Configuration extends AuthorizationServerConfigurerAdapter {
     @Override
     public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
         endpoints.tokenStore(tokenStore()).tokenEnhancer(jwtTokenEnhancer()).authenticationManager(authenticationManager);
+
     }
 
     @Autowired
     @Qualifier("authenticationManagerBean")
     private AuthenticationManager authenticationManager;
+
+
 
     @Bean
     public TokenStore tokenStore() {

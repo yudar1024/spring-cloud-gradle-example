@@ -10,7 +10,7 @@ targetCompatibility = JavaVersion.VERSION_1_8
 
 task wrapper(type: Wrapper) {
     gradleVersion = '3.1'
-    distributionUrl = "https://downloads.gradle.org/distributions/gradle-3.1-bin.zip"
+    distributionUrl = "https://downloads.gradle.org/distributions/gradle-3.2.1-bin.zip"
 }
 
 repositories {
@@ -19,6 +19,7 @@ repositories {
     maven { url "http://maven.aliyun.com/nexus/content/repositories/gradleplugins/" }
     maven { url "http://maven.aliyun.com/nexus/content/repositories/jcenter/" }
     mavenCentral()
+    jcenter()
 }
 
 buildscript {
@@ -36,9 +37,11 @@ buildscript {
         maven { url "http://maven.aliyun.com/nexus/content/repositories/gradleplugins/" }
         maven { url "http://maven.aliyun.com/nexus/content/repositories/jcenter/" }
         mavenCentral()
+        jcenter()
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath('com.bmuschko:gradle-docker-plugin:3.0.5')
     }
 }
 
@@ -49,8 +52,9 @@ dependencies {
 subprojects {
     apply plugin: 'java'
     apply plugin: 'idea'
-    apply plugin: 'spring-boot'
+    apply plugin: 'org.springframework.boot'
     apply plugin: "io.spring.dependency-management"
+    apply plugin: 'com.bmuschko.docker-remote-api'
 
     sourceCompatibility = JavaVersion.VERSION_1_8
     targetCompatibility = JavaVersion.VERSION_1_8
@@ -64,6 +68,7 @@ subprojects {
         maven { url "http://maven.aliyun.com/nexus/content/repositories/gradleplugins/" }
         maven { url "http://maven.aliyun.com/nexus/content/repositories/jcenter/" }
         mavenCentral()
+        jcenter()
     }
     buildscript {
         repositories {
@@ -73,10 +78,12 @@ subprojects {
             maven { url "http://maven.aliyun.com/nexus/content/repositories/gradleplugins/" }
             maven { url "http://maven.aliyun.com/nexus/content/repositories/jcenter/" }
             mavenCentral()
+            jcenter()
         }
         dependencies {
             // 相当于maven的插件
             classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+            classpath('com.bmuschko:gradle-docker-plugin:3.0.5')
         }
     }
 
