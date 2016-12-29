@@ -1,7 +1,21 @@
 group 'com.roger.springcloud.gradle.example'
 version '1.0-SNAPSHOT'
 apply plugin: 'com.bmuschko.docker-remote-api'
+apply plugin: 'com.bmuschko.docker-java-application'
 import com.bmuschko.gradle.docker.tasks.image.DockerBuildImage
+import com.bmuschko.gradle.docker.tasks.image.DockerPushImage
+
+
+docker {
+    url = 'https://192.168.99.100:2376'
+    certPath = new File('C:/Users/chenluo/.docker/machine/machines/default')
+    registryCredentials {
+        url = 'https://92.168.10.90/v1'
+        username = 'admin'
+        password = 'Harbor12345'
+//        email = 'benjamin.muschko@gmail.com'
+    }
+}
 
 dependencies {
     compile('org.springframework.cloud:spring-cloud-starter-config')
@@ -35,7 +49,10 @@ task copyJar(type: Copy) {
 
 task buildDockerImage(type: DockerBuildImage) {
     dependsOn   copyJar
+    //这部分仅仅是为了用于在windows下使用dockertool的时候。如果windows10 下可以通过hyper-V 使用直接的docker，而不通过dockertool，但是hyper-v 会导致vmware 不兼容，所以只好用dockertool
+
 //    if (System.env.DOCKER_HOST) {
+//        System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx")
 //        url = "$System.env.DOCKER_HOST".replace("tcp","https")
 //        if (System.env.DOCKER_CERT_PATH) {
 //            certPath = new File(System.env.DOCKER_CERT_PATH)
@@ -45,9 +62,21 @@ task buildDockerImage(type: DockerBuildImage) {
 //    else {
 //        url = 'unix:///var/run/docker.sock'
 //    }
+    url='https://192.168.99.100:2376'
+    certPath=new File('C:/Users/chenluo/.docker/machine/machines/default')
     inputDir = file('../build/docker/cloud-service-1')
-    tag = 'test/cloud-service1'
+    tag = 'reg.server.com/cenprivate/cloud-service-1'
+}
+
+
+
+
+task pushDockerImage(type: DockerPushImage) {
+    dependsOn   buildDockerImage
+    imageName='reg.server.com/cenprivate/cloud-service-1'
+}
+def getRegistryCredentials(){
+
 }
 
 //build.dependsOn buildDockerImage
-//build.dependsOn copyJar
