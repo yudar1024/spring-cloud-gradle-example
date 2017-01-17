@@ -9,8 +9,8 @@ targetCompatibility = JavaVersion.VERSION_1_8
 
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '3.1'
-    distributionUrl = "https://downloads.gradle.org/distributions/gradle-3.2.1-bin.zip"
+    gradleVersion = '3.3'
+    distributionUrl = "https://downloads.gradle.org/distributions/gradle-3.3-bin.zip"
 }
 
 repositories {
@@ -25,7 +25,7 @@ repositories {
 buildscript {
     ext {
 //        springBootVersion = '1.4.0.RELEASE'
-        springBootVersion = '1.4.2.RELEASE'
+        springBootVersion = '1.4.3.RELEASE'
     }
     tasks.withType(JavaCompile) {
         options.encoding = "UTF-8"
@@ -59,7 +59,7 @@ subprojects {
     sourceCompatibility = JavaVersion.VERSION_1_8
     targetCompatibility = JavaVersion.VERSION_1_8
     ext {
-        springBootVersion = '1.4.0.RELEASE'
+        springBootVersion = '1.4.3.RELEASE'
     }
 
     repositories {
@@ -89,7 +89,7 @@ subprojects {
 
     dependencyManagement {
         imports {
-            mavenBom 'org.springframework.cloud:spring-cloud-dependencies:Camden.SR3'
+            mavenBom 'org.springframework.cloud:spring-cloud-dependencies:Camden.SR4'
         }
     }
 
