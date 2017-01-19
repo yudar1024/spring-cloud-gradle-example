@@ -1,13 +1,14 @@
-package cloud.authserver.jdbc;
+package com.resourceserver.jdbc;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
+import org.springframework.boot.autoconfigure.security.oauth2.client.EnableOAuth2Sso;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.security.Principal;
+import java.util.UUID;
+
 
 /**
  * Created by chenluo on 2017/1/19.
@@ -15,14 +16,13 @@ import java.security.Principal;
 @SpringBootApplication
 @RestController
 @EnableResourceServer
-@EnableAuthorizationServer
-public class JdbcAuthServer {
-    public static void main(String[] args) {
-        SpringApplication.run(JdbcAuthServer.class, args);
+public class ResourceServerJdbc {
+    @RequestMapping("/")
+    private String home() {
+        return UUID.randomUUID().toString();
     }
 
-    @RequestMapping("/user")
-    public Principal user(Principal user) {
-        return user;
+    public static void main(String[] args) {
+        SpringApplication.run(ResourceServerJdbc.class, args);
     }
 }
