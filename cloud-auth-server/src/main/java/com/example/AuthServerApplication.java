@@ -16,10 +16,4 @@ public class AuthServerApplication {
         SpringApplication.run(AuthServerApplication.class, args);
     }
 
-    @Bean(name = "basicAuthenticationFilter")
-    public BasicAuthenticationFilter myBasicAuthenticationFilter(@Autowired AuthenticationManager authenticationManager) {
-        MyBasicAuthenticationFilter2 myBasicAuthenticationFilter2= new MyBasicAuthenticationFilter2(authenticationManager);
-        return myBasicAuthenticationFilter2;
-
-    }
 }
