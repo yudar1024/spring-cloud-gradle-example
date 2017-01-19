@@ -1,0 +1,16 @@
+#获取授权码测试地址http://localhost:9999/uaa/oauth/authorize?response_type=code&client_id=acme&redirect_uri=http://www.baidu.com&scope=app
+#获取token curl acme:acmesecret@localhost:9999/uaa/oauth/token -d grant_type=authorization_code -d client_id=acme -d redirect_ur i=http://www.baidu.com -d code=tS5eVF -d scope=app
+security:
+  oauth2:
+    client:
+      authorized-grant-types: "authorization_code,refresh_token,password"
+      client-secret: acmesecret
+      scopes: "app"
+      client-id: acme
+# user 这一部分仅仅是用于测试，实际开发项目中，需要通过userdetailservice去做
+  user:
+    password: pass
+    name: pass #默认的用户名为user
+server:
+  port: 9999
+  context-path: /uaa
