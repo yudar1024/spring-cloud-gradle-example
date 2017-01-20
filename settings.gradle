@@ -16,4 +16,6 @@ include 'cloud-resource-server2'
 include 'cloud-authsever-shiro'
 include 'cloud-authserver-jdbc'
 include 'cloud-resource-server-jdbc'
+include 'common-business-service'
+include 'cloud-authserver-memory'
 

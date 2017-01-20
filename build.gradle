@@ -42,6 +42,7 @@ buildscript {
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
         classpath('com.bmuschko:gradle-docker-plugin:3.0.5')
+//        classpath("com.jdroidframework:jdroid-gradle-plugin:0.10.1")
     }
 }
 
