@@ -11,4 +11,6 @@ import java.util.Optional;
  */
 @Repository
 public interface UserRepo extends JpaRepository<ResUser, Long> {
+
+    ResUser findByName(String name);
 }

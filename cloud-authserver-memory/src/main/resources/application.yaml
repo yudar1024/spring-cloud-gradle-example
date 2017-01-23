@@ -9,6 +9,8 @@ server:
 #用户名密码直接获取token的方式
 #curl http://acme:acmesecret@localhost:9999/uaa/oauth/token -d grant_type=password -d username=pass -d password=pass -d scope=app
 security:
+  basic:
+    enabled: false
   oauth2:
     client:
       authorized-grant-types: "implicit,authorization_code,refresh_token,password"
@@ -16,10 +18,13 @@ security:
       scopes: "app"
       client-id: acme
       auto-approve-scopes: "app"
+    authorization:
+      check-token-access: "permitAll()"
 # user 这一部分仅仅是用于测试，实际开发项目中，需要通过userdetailservice去做
   user:
     password: pass
     name: pass #默认的用户名为user
+    role: "tester"
 spring:
   profiles:
     active: mem

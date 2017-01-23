@@ -6,6 +6,8 @@ dependencies {
     compile("org.springframework.cloud:spring-cloud-starter-security")
     compile("org.springframework.cloud:spring-cloud-starter-oauth2")
     compile('org.springframework.cloud:spring-cloud-starter')
+    compile('org.springframework.cloud:spring-cloud-starter-eureka')
+
 //    compile group: 'org.springframework.boot', name: 'spring-boot-starter-aop', version: '1.4.3.RELEASE'
 
 }

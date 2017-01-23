@@ -9,9 +9,9 @@ server:
 #用户名密码直接获取token的方式
 #curl http://acme:acmesecret@localhost:9999/uaa/oauth/token -d grant_type=password -d username=pass -d password=pass -d scope=app
 security:
-  user:
-    password: pass
-    name: pass #默认的用户名为user
+#  user:
+#    password: pass
+#    name: pass #默认的用户名为user
   oauth2:
     client:
       authorized-grant-types: "implicit,authorization_code,refresh_token,password"
@@ -19,6 +19,8 @@ security:
       scopes: "app"
       client-id: acme
       auto-approve-scopes: "app"
+    authorization:
+      check-token-access: "permitAll()"
 
 spring:
   datasource:
