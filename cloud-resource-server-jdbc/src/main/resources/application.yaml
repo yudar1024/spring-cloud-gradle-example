@@ -1,9 +1,12 @@
 security:
   oauth2:
-#    client:
-#      accessTokenUri: http://localhost:9999/uaa/oauth/token
+    client:
+      accessTokenUri: http://localhost:9999/uaa/oauth/token
 #      userAuthorizationUri: http://localhost:9999/uaa/oauth/authorize
+      client-secret: acmesecret
+      client-id: acme
     resource:
-      user-info-uri: http://localhost:9999/uaa/user
+      token-info-uri: http://localhost:9999/uaa/oauth/check_token
+#      user-info-uri: http://localhost:9999/uaa/user
 server:
   port: 9000
