@@ -8,11 +8,11 @@ server:
 
 #用户名密码直接获取token的方式
 #curl http://acme:acmesecret@localhost:9999/uaa/oauth/token -d grant_type=password -d username=pass -d password=pass -d scope=app
-security:
+#security:
 #  user:
 #    password: pass
 #    name: pass #默认的用户名为user
-  oauth2:
+#  oauth2:
 # store client information to db oauth_client_details table
 #    client:
 #      authorized-grant-types: "implicit,authorization_code,refresh_token,password"
@@ -20,8 +20,9 @@ security:
 #      scopes: "app"
 #      client-id: acme
 #      auto-approve-scopes: "app"
-    authorization:
-      check-token-access: "permitAll()"
+#    authorization:
+#控制resource server 中 token-info-uri: http://localhost:9999/uaa/oauth/check_token 这个url的访问权限
+#      check-token-access: "permitAll()" 通过代码设置，当代码继承 AuthorizationServerConfigurerAdapter 之后，配置文件的设置失效，且会冲突
 
 
 spring:

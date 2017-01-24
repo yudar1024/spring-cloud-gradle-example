@@ -12,6 +12,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
+import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
 import org.springframework.security.oauth2.provider.ClientDetailsService;
 import org.springframework.security.oauth2.provider.client.JdbcClientDetailsService;
 import org.springframework.security.oauth2.provider.token.DefaultTokenServices;
@@ -58,7 +59,7 @@ public class ClientConfig extends AuthorizationServerConfigurerAdapter {
         // 配置TokenServices参数
         DefaultTokenServices tokenServices = new DefaultTokenServices();
         tokenServices.setTokenStore(endpoints.getTokenStore());
-        tokenServices.setSupportRefreshToken(false);
+        tokenServices.setSupportRefreshToken(true);
 //        endpoints 中，设置 ClientDetailsService 无效，必须通过  clients.withClientDetails(clientDetails()) 设置，是个SS的bug
 //        tokenServices.setClientDetailsService(endpoints.getClientDetailsService());
         tokenServices.setTokenEnhancer(endpoints.getTokenEnhancer());
@@ -69,5 +70,11 @@ public class ClientConfig extends AuthorizationServerConfigurerAdapter {
 //    @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
         clients.withClientDetails(clientDetails());
+    }
+
+    @Override
+    public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
+//        控制resource server 中 设置的token-info-uri: http://localhost:9999/uaa/oauth/check_token 这个url的访问权限
+        security.checkTokenAccess("permitAll()");
     }
 }
