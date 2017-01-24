@@ -58,7 +58,7 @@ public class ClientConfig extends AuthorizationServerConfigurerAdapter {
         // 配置TokenServices参数
         DefaultTokenServices tokenServices = new DefaultTokenServices();
         tokenServices.setTokenStore(endpoints.getTokenStore());
-        tokenServices.setSupportRefreshToken(true);
+        tokenServices.setSupportRefreshToken(false);
 //        endpoints 中，设置 ClientDetailsService 无效，必须通过  clients.withClientDetails(clientDetails()) 设置，是个SS的bug
 //        tokenServices.setClientDetailsService(endpoints.getClientDetailsService());
         tokenServices.setTokenEnhancer(endpoints.getTokenEnhancer());
