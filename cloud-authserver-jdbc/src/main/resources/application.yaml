@@ -13,14 +13,16 @@ security:
 #    password: pass
 #    name: pass #默认的用户名为user
   oauth2:
-    client:
-      authorized-grant-types: "implicit,authorization_code,refresh_token,password"
-      client-secret: acmesecret
-      scopes: "app"
-      client-id: acme
-      auto-approve-scopes: "app"
+# store client information to db oauth_client_details table
+#    client:
+#      authorized-grant-types: "implicit,authorization_code,refresh_token,password"
+#      client-secret: acmesecret
+#      scopes: "app"
+#      client-id: acme
+#      auto-approve-scopes: "app"
     authorization:
       check-token-access: "permitAll()"
+
 
 spring:
   datasource:
@@ -31,6 +33,6 @@ spring:
   jpa:
     hibernate:
       ddl-auto: update
-
+debug: true
 
 
