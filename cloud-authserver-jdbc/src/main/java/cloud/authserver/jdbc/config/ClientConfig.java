@@ -62,7 +62,7 @@ public class ClientConfig extends AuthorizationServerConfigurerAdapter {
 //        endpoints 中，设置 ClientDetailsService 无效，必须通过  clients.withClientDetails(clientDetails()) 设置，是个SS的bug
 //        tokenServices.setClientDetailsService(endpoints.getClientDetailsService());
         tokenServices.setTokenEnhancer(endpoints.getTokenEnhancer());
-        tokenServices.setAccessTokenValiditySeconds((int) TimeUnit.DAYS.toSeconds(30)); // 30天
+//        tokenServices.setAccessTokenValiditySeconds((int) TimeUnit.DAYS.toSeconds(30)); // 30天 可以设置在数据库中
         endpoints.tokenServices(tokenServices);
     }
 
