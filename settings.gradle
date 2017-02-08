@@ -18,4 +18,5 @@ include 'cloud-authserver-jdbc'
 include 'cloud-resource-server-jdbc'
 include 'common-business-service'
 include 'cloud-authserver-memory'
+include 'springboot-lab'
 
