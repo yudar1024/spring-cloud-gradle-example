@@ -1,0 +1,56 @@
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'maven'
+apply plugin: 'maven-publish'
+apply plugin: 'maven-publish'
+apply plugin: 'idea'
+
+dependencies {
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', version: '1.4.3.RELEASE'
+    compile group: 'mysql', name: 'mysql-connector-java', version: '6.0.5'
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+}
+
+buildscript{
+    ext{
+        uniqueVersion = true
+    }
+}
+//需要设置.m2/文件夹下的setting.xml 文件改变 repo 的位置
+//uploadArchives {
+//    repositories {
+//        mavenDeployer {
+//            repository(url: "file://d:/repo/maven/")
+//            //定制 version 和artifactId 覆盖掉项目自身的配置
+////            pom.version = '1.0Maven'
+////            pom.artifactId = 'myMavenName'
+//            uniqueVersion = false
+//        }
+//    }
+//}
+
+
+//task sourceJar(type: Jar, dependsOn: classes) {
+//    classifier ''
+//    from sourceSets.main.allSource
+//}
+//
+//publishing {
+//    publications {
+//        mavenJava(MavenPublication) {
+//            from components.java
+//
+//
+//        }
+//
+//    }
+//    repositories {
+//        PublishToMavenLocal
+//        maven {
+//            // change to point to your repo, e.g. http://my.org/repo
+//            url "file://d:/repo/maven"
+//        }
+//    }
+//}
+

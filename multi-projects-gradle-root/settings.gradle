@@ -1,0 +1,3 @@
+rootProject.name = 'multi-projects-gradle-root'
+include 'common-liberary-jar'
+

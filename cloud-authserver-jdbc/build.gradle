@@ -1,6 +1,6 @@
 group 'com.roger.springcloud.gradle.example'
 version '1.0-SNAPSHOT'
-
+apply plugin: 'idea'
 
 dependencies {
     compile("org.springframework.cloud:spring-cloud-starter-security")
@@ -11,5 +11,5 @@ dependencies {
     compile("org.springframework.cloud:spring-cloud-starter-ribbon")
     compile group: 'mysql', name: 'mysql-connector-java', version: '6.0.5'
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', version: '1.4.3.RELEASE'
-    compile project(":common-business-service")
+    compile ('multi-projects-gradle-root:common-liberary-jar:1.0-SNAPSHOT')
 }
